@@ -1,0 +1,40 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/shared/network/local/cash_helper.dart';
+import 'package:graduation_project/shared/network/remote/dio_helper.dart';
+
+import 'admin_change_password_states.dart';
+
+
+
+class AdminChangePasswordCubit extends Cubit<AdminChangePasswordStates> {
+ AdminChangePasswordCubit() : super(AdminChangeInitialState());
+  static AdminChangePasswordCubit get(context) => BlocProvider.of(context);
+  int? status ;
+  void adminChangePassword({
+    required String password,
+    required String new_password,
+    required String new_password_confirmation,
+
+  }) {
+    emit(AdminChangeLoadingState());
+    DioHelper.postData(
+      url: 'auth/change-password',
+      token: CashHelper.getData(key: 'token'),
+      data: {
+        'password':password,
+        'new_password':new_password,
+        'new_password_confirmation':new_password_confirmation,
+      },
+    ).then((value) {
+      status=value.statusCode;
+      print(status);
+      print(CashHelper.getData(key: 'token'));
+      print(value);
+      emit(AdminChangeSuccessState());
+    }).catchError((error){
+      print(error);
+      emit(AdminChangePasswordErrorState(error.toString()));
+    });
+  }
+
+}
