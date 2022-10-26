@@ -13,7 +13,8 @@ class UserGetCenterSuccess extends UserAppStates {}
 class UserGetCenterError extends UserAppStates {
  final String error;
 
- UserGetCenterError(this.error);
+  UserGetCenterError(this.error);
+
 }
 
 class UserGetStoreLoading extends UserAppStates {}

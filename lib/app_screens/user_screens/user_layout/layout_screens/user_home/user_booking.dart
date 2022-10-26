@@ -168,7 +168,7 @@ int index;
                                     is! CenterBookingLoading,
                                     builder:
                                         (context) =>
-                                        FlatButton(
+                                        MaterialButton(
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                               BorderRadius.circular(50)),

@@ -243,7 +243,7 @@ class _UserSettingsState extends State<UserSettings> {
                                 notification = v;
                               });
                             },
-                          ))
+                          ),),
                     ],
                   ),
 

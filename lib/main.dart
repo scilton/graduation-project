@@ -26,8 +26,12 @@ void main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
+  DioHelper.init();
+  await CashHelper.init();
 
-    var fcmToken= await FirebaseMessaging.instance.getToken();
+
+
+  var fcmToken= await FirebaseMessaging.instance.getToken();
 print('token :$fcmToken');
 
 FirebaseMessaging.onMessage.listen((event) {
@@ -49,8 +53,6 @@ FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandles);
        ],
        fallbackLocale: const Locale('en'),
        child: MyApp()));
-  DioHelper.init();
-  await CashHelper.init();
 
 
 }

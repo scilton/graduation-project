@@ -207,7 +207,7 @@ class _UserMakeVolunteerRequestState extends State<UserMakeVolunteerRequest> {
                               is! UserMakeVolunteerRequestsLoading,
                               builder:
                                   (context) =>
-                                  FlatButton(
+                                  MaterialButton(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                         BorderRadius.circular(50)),

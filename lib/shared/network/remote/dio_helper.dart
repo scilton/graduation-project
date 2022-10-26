@@ -1,18 +1,18 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:http_parser/http_parser.dart';
 
 class DioHelper {
   static Dio? dio;
 
   static init() {
-    print('dio helper run');
+    debugPrint('dio helper run');
     dio = Dio(BaseOptions(
         validateStatus: (_)=>true,
       baseUrl: 'http://31.187.74.106/api/',
         receiveDataWhenStatusError: true,
-
 
     ));
   }
@@ -23,7 +23,7 @@ class DioHelper {
     String? token,
   }) async {
     dio!.options.headers={
-      'Authorization':'Bearer $token',
+      'Authorization':'$token',
       'Accept':'application/json',
     };
     return await dio!.get(
