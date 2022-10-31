@@ -1,7 +1,6 @@
 # graduation_project
 
 I can App
-test 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
